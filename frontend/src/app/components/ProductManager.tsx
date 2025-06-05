@@ -9,7 +9,7 @@ interface Product {
   comment: string;
   quantity: number;
   company_id: string;
-  company?: any; // TODO : Define the company manager and model
+  company?: { name: string }; // TODO : Define the company manager and model
 }
 
 export default function ProductManager() {
@@ -121,7 +121,7 @@ export default function ProductManager() {
           <li key={product.id} className="mb-2 flex items-center">
             <div className="flex-1">
               <span className="font-bold">{product.name}</span> - {product.comment} (
-              {product.quantity}) from {product.company.name} ({product.company_id})
+              {product.quantity}) from {product.company?.name} ({product.company_id})
             </div>
             <button
               onClick={() => setEditingProduct(product)}
